@@ -1,17 +1,11 @@
-import {
-  View,
-  Text,
-  Button,
-  TouchableOpacity,
-  StyleSheet,
-  Image,
-} from "react-native";
+import { TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Ionicons } from "@expo/vector-icons";
 import { Search, Wishlist, Home, Files } from "../screens";
 import space from "../design-system/common/space";
+import { LogoSVG } from "../components/svg";
 
 const Tab = createBottomTabNavigator();
 
@@ -51,7 +45,7 @@ const Routes = () => (
           }}
           style={{ paddingLeft: space.S }}
         >
-          <Image style={styles.logo} source={require("../assets/logo.png")} />
+          <LogoSVG maxWidth={50} maxHeight={46} />
         </TouchableOpacity>
       ),
       tabBarActiveTintColor: "#E21F2C",

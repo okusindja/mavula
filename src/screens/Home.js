@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <ScreenContainer>
       <SearchInput />
-      <BlocksMenu title="Categorias" />
+      <BlocksMenu title="Cursos" />
     </ScreenContainer>
   );
 };

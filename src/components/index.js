@@ -1,1 +1,1 @@
-export { default as BlocksMenu } from "./BlocksMenu";
+export { default as BlocksMenu } from "./blocks-menu";
