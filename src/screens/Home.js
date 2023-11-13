@@ -4,7 +4,6 @@ import { BlocksMenu } from "../components/";
 const Home = () => {
   return (
     <ScreenContainer>
-      <SearchInput />
       <BlocksMenu title="Cursos" />
     </ScreenContainer>
   );

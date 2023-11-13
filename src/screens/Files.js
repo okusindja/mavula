@@ -4,7 +4,6 @@ import { BlocksMenu } from "../components/";
 const Files = () => {
   return (
     <ScreenContainer>
-      <SearchInput />
       <BlocksMenu title="Categorias" />
     </ScreenContainer>
   );

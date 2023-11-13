@@ -1,15 +1,19 @@
-import { NavigationContainer } from "@react-navigation/native";
 import Routes from "./src/routes/Routes";
 import { SafeAreaView, StatusBar } from "react-native";
+import {
+  createDrawerNavigator,
+  useDrawerStatus,
+} from "@react-navigation/drawer";
+import { NavigationContainer } from "@react-navigation/native";
 
 const App = () => {
   return (
-    <NavigationContainer>
+    <>
       <StatusBar style="auto" />
-      <SafeAreaView style={{ flex: 1 }}>
+      <NavigationContainer>
         <Routes />
-      </SafeAreaView>
-    </NavigationContainer>
+      </NavigationContainer>
+    </>
   );
 };
 

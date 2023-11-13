@@ -1,71 +1,88 @@
-import { TouchableOpacity, StyleSheet } from "react-native";
 import React from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
-import { Ionicons } from "@expo/vector-icons";
-import { Search, Wishlist, Home, Files } from "../screens";
-import space from "../design-system/common/space";
-import { LogoSVG } from "../components/svg";
+import {
+  DrawerContentScrollView,
+  createDrawerNavigator,
+  DrawerItemList,
+  DrawerItem,
+} from "@react-navigation/drawer";
+import { Platform, useWindowDimensions } from "react-native";
+import { FilesScreen, HomeScreen } from "../screens";
+import { DrawerHeader } from "../components";
+import { scale } from "react-native-size-matters";
+import { LogoutSVG } from "../components/svg";
 
-const Tab = createBottomTabNavigator();
-
-const Routes = () => (
-  <Tab.Navigator
-    screenOptions={({ route }) => ({
-      tabBarIcon: ({ focused, color, size }) => {
-        let iconName;
-        if (route.name === "Home") {
-          iconName = focused ? "home-variant" : "home-variant-outline";
-        } else if (route.name === "My Books") {
-          iconName = focused ? "bookshelf" : "bookshelf";
-        } else if (route.name === "Wishlist") {
-          iconName = focused ? "cards-heart" : "cards-heart-outline";
-        } else if (route.name === "Search") {
-          iconName = focused ? "magnify" : "magnify";
-        }
-
-        return (
-          <MaterialCommunityIcons name={iconName} size={size} color={color} />
-        );
-      },
-      headerRight: () => (
-        <TouchableOpacity
-          onPress={() => {
-            // Do something
+const CustomDrawerContent = (props) => {
+  const { height } = useWindowDimensions();
+  return (
+    <>
+      <DrawerHeader />
+      <DrawerContentScrollView
+        {...props}
+        contentContainerStyle={{
+          flex: 1,
+          paddingTop: scale(170),
+        }}
+      >
+        <DrawerItemList {...props} />
+        <DrawerItem
+          label="Terminar Sessão"
+          labelStyle={{
+            color: Colors.active,
+            fontSize: scale(13),
+            marginLeft: scale(-20),
           }}
-          style={{ paddingRight: space.S }}
-        >
-          <Ionicons name="ios-person-circle-outline" size={32} color="gray" />
-        </TouchableOpacity>
-      ),
-      headerLeft: () => (
-        <TouchableOpacity
-          onPress={() => {
-            // Do something
-          }}
-          style={{ paddingLeft: space.S }}
-        >
-          <LogoSVG maxWidth={50} maxHeight={46} />
-        </TouchableOpacity>
-      ),
-      tabBarActiveTintColor: "#E21F2C",
-      tabBarInactiveTintColor: "gray",
-      headerStyle: { height: 80 },
-      headerTitleStyle: { fontSize: 18 },
-    })}
-  >
-    <Tab.Screen name="Home" component={Home} />
-    <Tab.Screen name="My Books" component={Files} />
-    <Tab.Screen name="Wishlist" component={Wishlist} />
-    <Tab.Screen name="Search" component={Search} />
-  </Tab.Navigator>
-);
+          icon={() => (
+            <LogoutSVG
+              maxHeight={scale(24)}
+              maxWidth={scale(24)}
+              width="100%"
+            />
+          )}
+          onPress={() => alert("Terminar Sessão")}
+        />
+      </DrawerContentScrollView>
+    </>
+  );
+};
+const Drawer = createDrawerNavigator();
+const DrawerNavigator = () => {
+  return (
+    <Drawer.Navigator
+      drawerType="slide"
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
+      screenOptions={{
+        headerShown: false,
+        drawerContentStyle: "none",
+        overlayColor: Colors.transparent,
+        drawerActiveTintColor: Colors.active,
+        drawerInactiveTintColor: Colors.inactive,
+        drawerActiveBackgroundColor: Colors.transparent,
+        drawerInactiveBackgroundColor: Colors.transparent,
+        drawerLabelStyle: { fontSize: scale(13) },
+        drawerHideStatusBarOnOpen: Platform.OS === "ios" ? true : false,
+        drawerStyle: {
+          backgroundColor: Colors.bg,
+          width: "60%",
+        },
+        sceneContainerStyle: {
+          backgroundColor: Colors.bg,
+        },
+      }}
+    >
+      <Drawer.Screen name="Início" component={HomeScreen} />
+      <Drawer.Screen name="Minha conta" component={FilesScreen} />
+      <Drawer.Screen name="Armazenamento" component={FilesScreen} />
+      <Drawer.Screen name="Turmas" component={FilesScreen} />
+      <Drawer.Screen name="Definições" component={FilesScreen} />
+    </Drawer.Navigator>
+  );
+};
 
-const styles = StyleSheet.create({
-  logo: {
-    width: 40,
-    height: 46,
-  },
-});
+export default DrawerNavigator;
 
-export default Routes;
+const Colors = {
+  bg: "#EEF7FE",
+  active: "#383838",
+  inactive: "#656565",
+  transparent: "transparent",
+};
