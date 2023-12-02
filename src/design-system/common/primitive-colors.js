@@ -9,6 +9,8 @@ const primitiveColors = {
   RED_700: "#711016",
   RED_800: "#39080B",
   RED_900: "#170304",
+  BLUE_50: "#1E4ACE",
+  BLUE_100: "#567DF4",
 };
 
 export default primitiveColors;

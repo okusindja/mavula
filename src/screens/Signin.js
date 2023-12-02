@@ -1,17 +1,17 @@
-import { ScreenWithDrawerContainer, SearchInput } from "../elements/";
+import { ScreenContainer, SearchInput } from "../elements/";
 import { BlocksMenu } from "../components/";
 import { Text, StyleSheet } from "react-native";
 import { scale } from "react-native-size-matters";
 
-const Files = () => {
+const Signin = () => {
   return (
-    <ScreenWithDrawerContainer>
-      <Text style={styles.text}>Minha conta</Text>
-    </ScreenWithDrawerContainer>
+    <ScreenContainer>
+      <Text style={styles.text}>Pedir Acesso</Text>
+    </ScreenContainer>
   );
 };
 
-export default Files;
+export default Signin;
 
 const styles = StyleSheet.create({
   text: {

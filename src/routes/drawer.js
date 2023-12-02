@@ -10,40 +10,9 @@ import { FilesScreen, HomeScreen } from "../screens";
 import { DrawerHeader } from "../components";
 import { scale } from "react-native-size-matters";
 import { LogoutSVG } from "../components/svg";
+import CustomDrawerContent from "./drawer-content";
+import { NavigationContainer } from "@react-navigation/native";
 
-const CustomDrawerContent = (props) => {
-  const { height } = useWindowDimensions();
-  return (
-    <>
-      <DrawerHeader />
-      <DrawerContentScrollView
-        {...props}
-        contentContainerStyle={{
-          flex: 1,
-          paddingTop: scale(170),
-        }}
-      >
-        <DrawerItemList {...props} />
-        <DrawerItem
-          label="Terminar Sessão"
-          labelStyle={{
-            color: Colors.active,
-            fontSize: scale(13),
-            marginLeft: scale(-20),
-          }}
-          icon={() => (
-            <LogoutSVG
-              maxHeight={scale(24)}
-              maxWidth={scale(24)}
-              width="100%"
-            />
-          )}
-          onPress={() => alert("Terminar Sessão")}
-        />
-      </DrawerContentScrollView>
-    </>
-  );
-};
 const Drawer = createDrawerNavigator();
 const DrawerNavigator = () => {
   return (

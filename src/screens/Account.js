@@ -1,12 +1,12 @@
-import { ScreenContainer, SearchInput } from "../elements";
+import { ScreenWithDrawerContainer, SearchInput } from "../elements";
 import { BlocksMenu } from "../components";
 
 const MyProfile = () => {
   return (
-    <ScreenContainer>
+    <ScreenWithDrawerContainer>
       <SearchInput />
       <BlocksMenu title="Categorias" />
-    </ScreenContainer>
+    </ScreenWithDrawerContainer>
   );
 };
 
