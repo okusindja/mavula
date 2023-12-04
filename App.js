@@ -25,7 +25,7 @@ const App = () => {
   }
   return (
     <>
-      <StatusBar backgroundColor="transparent" barStyle="dark-content" />
+      {/* <StatusBar backgroundColor="transparent" barStyle="dark-content" /> */}
       <NavigationContainer>
         <MainRoutes />
       </NavigationContainer>

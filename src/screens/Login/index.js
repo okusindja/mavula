@@ -1,6 +1,6 @@
 import { ScreenContainer } from "../../elements";
 import { Text, StyleSheet, Pressable, View } from "react-native";
-import { scale } from "react-native-size-matters";
+import { scale, verticalScale } from "react-native-size-matters";
 import HeroLayout from "./hero-layout";
 import { Button } from "../../components";
 import { SmartIDSVG } from "../../components/svg";
@@ -24,7 +24,11 @@ const Login = ({ navigation }) => {
           <Text
             style={[
               styles.InviteToTheAppText,
-              { marginTop: activeLoginForm ? scale(10) : scale(45) },
+              {
+                marginTop: activeLoginForm
+                  ? verticalScale(10)
+                  : verticalScale(25),
+              },
             ]}
           >
             Conecte-se à sua instituição
@@ -40,7 +44,7 @@ const Login = ({ navigation }) => {
                   <SmartIDSVG
                     width="100%"
                     maxWidth={scale(24)}
-                    maxHeight={scale(25)}
+                    maxHeight={verticalScale(25)}
                   />
                 )
               }
@@ -57,12 +61,18 @@ const Login = ({ navigation }) => {
                 <RightArrow
                   width="100%"
                   maxWidth={scale(15)}
-                  maxHeight={scale(11)}
+                  maxHeight={verticalScale(11)}
                 />
               }
             />
           </View>
-          <Pressable style={{ marginTop: scale(25), alignItems: "center" }}>
+          <Pressable
+            style={{
+              marginTop: verticalScale(10),
+              marginBottom: verticalScale(10),
+              alignItems: "center",
+            }}
+          >
             <Text style={styles.resume}>Criar uma conta</Text>
           </Pressable>
         </View>
@@ -77,7 +87,7 @@ const styles = StyleSheet.create({
   resume: {
     color: "#898989",
     fontSize: scale(13),
-    marginTop: scale(20),
+    marginTop: verticalScale(12),
   },
   InviteToTheAppText: {
     color: "#898989",

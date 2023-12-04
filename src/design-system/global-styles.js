@@ -1,16 +1,15 @@
-import { StyleSheet } from "react-native";
-import { scale } from "react-native-size-matters";
+import { ScaledSheet } from "react-native-size-matters";
 
-module.exports = StyleSheet.create({
+module.exports = ScaledSheet.create({
   inputWrapper: {
     borderWidth: 1,
     borderWidth: 1,
     borderRadius: 10,
     color: "#464646",
-    height: scale(59),
-    padding: scale(18),
+    height: "55@vs",
+    padding: "18@s",
+    fontSize: "21@s",
     flexDirection: "row",
-    fontSize: scale(16),
     alignItems: "center",
     borderColor: "#D4D4D4",
     backgroundColor: "transparent",

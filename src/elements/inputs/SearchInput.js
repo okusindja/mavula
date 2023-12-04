@@ -14,7 +14,7 @@ const SearchInput = () => {
       <TextInput
         inputMode="search"
         style={global.input}
-        placeholder="Search anything"
+        placeholder="Procure alguma coisa..."
       />
     </View>
   );

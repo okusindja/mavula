@@ -1,6 +1,6 @@
 import React from "react";
 import { Pressable, Text, StyleSheet, View } from "react-native";
-import { scale } from "react-native-size-matters";
+import { scale, verticalScale } from "react-native-size-matters";
 
 const Button = ({ onPress, label, preffix, suffix, variant, mr }) => {
   return (
@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     marginTop: scale(20),
     backgroundColor: "#fff",
     justifyContent: "center",
+    height: verticalScale(45),
   },
   text: {
     fontSize: scale(14),

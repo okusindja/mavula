@@ -1,17 +1,9 @@
 import React from "react";
-import {
-  DrawerContentScrollView,
-  createDrawerNavigator,
-  DrawerItemList,
-  DrawerItem,
-} from "@react-navigation/drawer";
-import { Platform, useWindowDimensions } from "react-native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { Platform } from "react-native";
 import { FilesScreen, HomeScreen } from "../screens";
-import { DrawerHeader } from "../components";
 import { scale } from "react-native-size-matters";
-import { LogoutSVG } from "../components/svg";
 import CustomDrawerContent from "./drawer-content";
-import { NavigationContainer } from "@react-navigation/native";
 
 const Drawer = createDrawerNavigator();
 const DrawerNavigator = () => {
